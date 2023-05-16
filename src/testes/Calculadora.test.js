@@ -68,7 +68,7 @@ describe("Testando funcoes do codigo", () => {
     const elemento4 = screen.getByText("=");
     const elemento5 = screen.getByText("+");
     const elemento6 = screen.getByText("1");
-    const elemento7 = screen.getByText("0");
+    const elemento7 = screen.getAllByText("0");
 
     // const button = screen.getByRole("button", { name: /5/i });
     // const button2 = screen.getByRole("button", { name: "*" });
@@ -94,6 +94,11 @@ describe("Testando funcoes do codigo", () => {
     await user.click(elemento6);
     await user.click(elemento7);
 
-    const result2 = screen.getByText("20");
+    screen.debug();
+
+    // const result2 = screen.getByText("20");
+    const result3 = screen.getByDisplayValue("20");
+    screen.logTestingPlaygroundURL();
+    expect(result3).toBeInTheDocument();
   });
 });
